@@ -1,5 +1,4 @@
 import java.time.LocalDate;
-//import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Scanner;
@@ -31,7 +30,7 @@ public class App {
         String statusString = sc.nextLine();
         OrderStatus status = OrderStatus.valueOf(statusString.toUpperCase());
         
-        Order orderMain = new Order(status, new Client(name, email, birthDate));
+        Order order = new Order(status, new Client(name, email, birthDate));
         
         System.out.print("How many items to this order? ");
         int nItems = sc.nextInt();
@@ -46,11 +45,11 @@ public class App {
             System.out.print("Product quantity: ");
             int productQuantity = sc.nextInt();
 
-            orderMain.addItem(new OrderItem(productQuantity, productPrice, new Product(productName, productPrice)));
+            order.addItem(new OrderItem(productQuantity, productPrice, new Product(productName, productPrice)));
         }
 
 
-        System.out.println(orderMain);
+        System.out.println(order); // Show the order details...
 
         sc.close(); // Close the object that alow read values by keyword
     }
