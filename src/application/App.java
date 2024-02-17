@@ -18,9 +18,6 @@ public class App {
         Scanner sc = new Scanner(System.in);
         DateTimeFormatter dateOnly = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-        Order order = new Order();
-        List<OrderItem> orderItem = new ArrayList<>();
-
         // All code ...
         System.out.println("Enter client datas: ");
         System.out.print("Name: ");
@@ -29,18 +26,17 @@ public class App {
         String email = sc.nextLine();
         System.out.print("Birth date (DD/MM/YYYY): ");
         String birthDateString = sc.nextLine();
-        LocalDate birthDate = LocalDate.parse(birthDateString, dateOnly);
+        LocalDate birthDate = LocalDate.parse(birthDateString, dateOnly); // Converting and assigning the date coming from the user
 
-        //Client client = new Client(name, email, birthDate);
-
-        System.out.println("Enter order data:");
+        System.out.println("\nEnter order data:");
         System.out.print("Status: ");
         String statusString = sc.nextLine();
         OrderStatus status = OrderStatus.valueOf(statusString.toUpperCase());
+        
+        Order orderMain = new Order(status, new Client(name, email, birthDate));
+        
         System.out.print("How many items to this order? ");
         int nItems = sc.nextInt();
-
-        Order orderToUse = new Order(status, new Client(name, email, birthDate));
 
         for (int c = 0; c < nItems; c++) {
             sc.nextLine();
@@ -52,13 +48,13 @@ public class App {
             System.out.print("Product quantity: ");
             int productQuantity = sc.nextInt();
 
-            order.addItem(new OrderItem(productQuantity, productPrice, new Product(productName, productPrice)));
+            orderMain.addItem(new OrderItem(productQuantity, productPrice, new Product(productName, productPrice)));
         }
 
 
-        System.out.println(orderToUse);
+        System.out.println(orderMain);
 
-        sc.close(); // Close the object that alow read value by keyword
+        sc.close(); // Close the object that alow read values by keyword
     }
 
 }

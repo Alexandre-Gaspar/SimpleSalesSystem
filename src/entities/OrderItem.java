@@ -42,4 +42,15 @@ public class OrderItem {
         return getQuantity()*getPrice();
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(product.getName() + ", ");
+        sb.append(product.getPrice() + ", ");
+        sb.append("Quantity: " + getQuantity() + ", ");
+        sb.append("Subtotal: " + subTotal() + "\n");
+
+        return sb.toString();
+    }
+
 }
