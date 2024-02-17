@@ -75,7 +75,10 @@ public class Order {
         sb.append("Order moment: " + moment.format(dateAndTime) + "\n");
         sb.append("Order status: " + getStatus() + "\n");
         sb.append("Client: " + client.getName() + " (" + client.getBirthDate().format(dateOnly) + ") - " + client.getEmail() + "\n\n");
-        sb.append("Order items: \n" + items + "\n");
+        sb.append("Order items: \n");
+        for (OrderItem each: items) {
+            sb.append(each);
+        }
         sb.append("Total price: " + getTotalToPay());
 
         return sb.toString(); // Gotta be converted into String, because its (method) return is a String
