@@ -1,11 +1,11 @@
-package entities;
+package model.entities;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-
-import entities.enums.OrderStatus;
 import java.util.List;
+
+import model.entities.enums.OrderStatus;
 
 public class Order {
     
