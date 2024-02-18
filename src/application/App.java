@@ -27,8 +27,7 @@ public class App {
 
         System.out.println("\nEnter order data:");
         System.out.print("Status: ");
-        String statusString = sc.nextLine();
-        OrderStatus status = OrderStatus.valueOf(statusString.toUpperCase());
+        OrderStatus status = OrderStatus.valueOf(sc.nextLine().toUpperCase());
         
         Order order = new Order(status, new Client(name, email, birthDate));
         
