@@ -13,7 +13,7 @@ public class Order {
     DateTimeFormatter dateOnly = DateTimeFormatter.ofPattern("dd/MM/yyyy"); // Create a format of date only
     private LocalDateTime moment = LocalDateTime.now();
     private OrderStatus status;
-    private double totalToPay = 0.0;
+    private Double totalToPay = 0.0;
 
     // Creating association
     List<OrderItem> items = new ArrayList<>(); // Lista dos items (heve many)
@@ -59,7 +59,7 @@ public class Order {
         items.remove(item);
     }
     
-    public double getTotalToPay() { // Return the total cost of the order
+    public Double getTotalToPay() { // Return the total cost of the order
         for (OrderItem each: items) { // Go through the entire list of items, taking only the subtotals
             totalToPay += each.subTotal();
         } // Add all subtotals and add the variable totalToPay

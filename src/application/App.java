@@ -33,7 +33,7 @@ public class App {
         Order order = new Order(status, new Client(name, email, birthDate));
         
         System.out.print("How many items to this order? ");
-        int nItems = sc.nextInt();
+        Integer nItems = sc.nextInt();
 
         for (int c = 0; c < nItems; c++) {
             sc.nextLine();
@@ -41,9 +41,9 @@ public class App {
             System.out.print("Product name: ");
             String productName = sc.nextLine();
             System.out.print("Product price: ");
-            double productPrice = sc.nextDouble();
+            Double productPrice = sc.nextDouble();
             System.out.print("Product quantity: ");
-            int productQuantity = sc.nextInt();
+            Integer productQuantity = sc.nextInt();
 
             order.addItem(new OrderItem(productQuantity, productPrice, new Product(productName, productPrice)));
         }
